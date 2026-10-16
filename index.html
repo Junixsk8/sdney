@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#18251a">
+    <meta name="description" content="Perfil militar de SD NEY. Exército Brasileiro.">
+
+    <title>SD NEY | Exército Brasileiro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <header class="topbar">
+        <div class="status">
+            <span class="status-dot"></span>
+            PERFIL MILITAR
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="profile-card">
+
+            <div class="card-top">
+                <span>IDENTIFICAÇÃO DO COMBATENTE</span>
+                <span class="classification">SD</span>
+            </div>
+
+            <div class="profile-image">
+                <img src="ney.jpg" alt="Símbolo militar">
+            </div>
+
+            <div class="rank">RECRUTA</div>
+
+            <h1>SD NEY</h1>
+
+            <div class="divider">
+                <span></span>
+                <div>✦</div>
+                <span></span>
+            </div>
+
+            <p class="subtitle">EXÉRCITO BRASILEIRO</p>
+
+            <div class="tags">
+                <span>COMUNICAR</span>
+                <span>CONECTAR</span>
+                <span>COMANDAR</span>
+            </div>
+
+            <p class="quote">
+                "Bentido seja o desconforto que nos faz melhorar."
+            </p>
+
+            <div class="military-info">
+                <div>
+                    <span>GRADUAÇÃO</span>
+                    <strong>SD EV</strong>
+                </div>
+
+                <div>
+                    <span>IDENTIFICAÇÃO</span>
+                    <strong>SD NEY</strong>
+                </div>
+
+                <div>
+                    <span>SEÇÃO</span>
+                    <strong>CCOM</strong>
+                </div>
+            </div>
+
+            <div class="music-player">
+                <div class="music-icon">♫</div>
+
+                <div class="music-details">
+                    <strong>BATISTA DE MELO</strong>
+                    <span id="music-status">Banda da Guarda Civil do Estado de São Paulo</span>
+                </div>
+                <audio id="background-music" loop preload="auto">
+                    <source src="Batista-de-Melo.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+            </div>
+
+            <div class="volume-container">
+                <span>VOLUME</span>
+                <input
+                    type="range"
+                    id="volume"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.5"
+                    aria-label="Volume da música"
+                >
+            </div>
+
+            <button class="sound-button" id="enable-sound">
+                ▶ INICIAR MISSÃO SONORA
+            </button>
+
+        </section>
+
+        <footer>
+            <span>BRASIL ACIMA DE TUDO!</span>
+            <span>SELVA! 🔰</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

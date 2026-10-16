@@ -1,0 +1,499 @@
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --olive: #667348;
+    --dark-green: #17231a;
+    --light-green: #a5b887;
+    --gold: #c7b477;
+    --white: #f0f0e9;
+    --panel: rgba(10, 17, 11, 0.88);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--dark-green);
+    color: var(--white);
+    overflow-x: hidden;
+}
+
+/* ========================================
+   FUNDO MILITAR
+======================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background: url("img/selva.jpg") center center / cover no-repeat;
+    transform: scale(1.04);
+    animation: backgroundZoom 25s ease-in-out infinite alternate;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 25, 12, 0.88),
+        rgba(30, 43, 26, 0.75),
+        rgba(5, 20, 10, 0.94)
+    );
+}
+
+/* ========================================
+   TEXTURA DE CAMUFLAGEM
+======================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image:
+        radial-gradient(ellipse at 20% 20%, #87966b 0 9%, transparent 10%),
+        radial-gradient(ellipse at 80% 70%, #536343 0 12%, transparent 13%),
+        radial-gradient(ellipse at 50% 90%, #323e2c 0 14%, transparent 15%);
+    background-size: 190px 170px, 230px 200px, 250px 210px;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.topbar {
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid rgba(199, 180, 119, 0.28);
+    background: rgba(10, 17, 11, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #d6ddcb;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #8fae63;
+    box-shadow: 0 0 12px #8fae63;
+    animation: pulse 2s infinite;
+}
+
+/* ========================================
+   CONTEÚDO PRINCIPAL
+======================================== */
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    padding: 55px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   CARTÃO MILITAR
+======================================== */
+
+.profile-card {
+    position: relative;
+    width: 100%;
+    max-width: 470px;
+    padding: 30px;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid rgba(165, 184, 135, 0.38);
+    border-radius: 5px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5), inset 0 0 35px rgba(100, 125, 76, 0.07);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    animation: appear 1s ease both;
+}
+
+.profile-card::before,
+.profile-card::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-color: var(--gold);
+    border-style: solid;
+    pointer-events: none;
+}
+
+.profile-card::before {
+    top: 8px;
+    left: 8px;
+    border-width: 1px 0 0 1px;
+}
+
+.profile-card::after {
+    right: 8px;
+    bottom: 8px;
+    border-width: 0 1px 1px 0;
+}
+
+/* ========================================
+   IDENTIFICAÇÃO SUPERIOR
+======================================== */
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--light-green);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.classification {
+    padding: 5px 9px;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    font-size: 13px;
+}
+
+/* ========================================
+   FOTO DE PERFIL
+======================================== */
+
+.profile-image {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    margin: 30px auto 18px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(104, 125, 75, 0.17);
+    box-shadow: 0 0 0 4px rgba(199, 180, 119, 0.08), 0 0 25px rgba(165, 184, 135, 0.2);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 50%;
+}
+
+/* ========================================
+   PATENTE E NOME
+======================================== */
+
+.rank {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+h1 {
+    margin-top: 8px;
+    font-size: clamp(38px, 8vw, 54px);
+    letter-spacing: 7px;
+    font-weight: 900;
+    text-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* ========================================
+   DIVISOR DECORATIVO
+======================================== */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px auto;
+    max-width: 230px;
+    color: var(--gold);
+}
+
+.divider span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.divider span:last-child {
+    transform: rotate(180deg);
+}
+
+.subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+/* ========================================
+   ETIQUETAS MILITARES
+======================================== */
+
+.tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 22px 0;
+}
+
+.tags span {
+    padding: 7px 11px;
+    border: 1px solid rgba(165, 184, 135, 0.3);
+    background: rgba(103, 125, 74, 0.14);
+    color: var(--light-green);
+    font-size: 9px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.tags span:hover {
+    background: rgba(103, 125, 74, 0.35);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   LEMA
+======================================== */
+
+.quote {
+    max-width: 310px;
+    margin: 0 auto 25px;
+    color: #d2d8c9;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+/* ========================================
+   INFORMAÇÕES MILITARES
+======================================== */
+
+.military-info {
+    padding: 15px 0;
+    border-top: 1px solid rgba(165, 184, 135, 0.18);
+    border-bottom: 1px solid rgba(165, 184, 135, 0.18);
+}
+
+.military-info div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.military-info div + div {
+    border-top: 1px solid rgba(165, 184, 135, 0.1);
+}
+
+.military-info span {
+    color: #a5b194;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.military-info strong {
+    color: var(--white);
+    font-size: 11px;
+    text-align: right;
+}
+
+/* ========================================
+   PLAYER DE MÚSICA
+======================================== */
+
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 24px;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(165, 184, 135, 0.22);
+    text-align: left;
+}
+
+.music-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    font-size: 23px;
+    border: 1px solid rgba(199, 180, 119, 0.4);
+}
+
+.music-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.music-details strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.music-details span {
+    display: block;
+    margin-top: 5px;
+    color: var(--light-green);
+    font-size: 10px;
+}
+
+#play-button {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid var(--gold);
+    background: var(--olive);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#play-button:hover {
+    background: #81905e;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   CONTROLE DE VOLUME
+======================================== */
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.volume-container span {
+    color: var(--light-green);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+#volume {
+    flex: 1;
+    accent-color: var(--olive);
+    cursor: pointer;
+}
+
+/* ========================================
+   BOTÃO DE ATIVAÇÃO DO ÁUDIO
+======================================== */
+
+.sound-button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px;
+    background: rgba(103, 125, 74, 0.18);
+    border: 1px solid var(--gold);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sound-button:hover {
+    background: var(--olive);
+    box-shadow: 0 0 18px rgba(103, 125, 74, 0.25);
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    color: #c2cbb6;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* ========================================
+   ANIMAÇÕES
+======================================== */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes backgroundZoom {
+    from { transform: scale(1.04); }
+    to { transform: scale(1.12); }
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 520px) {
+    .topbar { padding: 15px 5%; }
+    .container { padding: 30px 14px 20px; }
+    .profile-card { padding: 24px 19px; }
+    .profile-image { width: 105px; height: 105px; }
+    h1 { letter-spacing: 5px; }
+}
